@@ -13,12 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag adras/laravel:latest
-
-    - uses: docker/build-push-action@v1
     - name: Build and push Docker images
-    with:
-      repository: adras/laravel
-      tags: latest
+      uses: docker/build-push-action@v1
+      with:
+        repository: adras/laravel
+        tags: latest
