@@ -12,7 +12,7 @@ RUN apt install -y tzdata
 RUN cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
 #instalando php 7.4
-RUN apt install -y software-properties-common/bionic-updates && apt install -y apt-utils && apt-add-repository -y ppa:ondrej/php
+#RUN apt install -y software-properties-common/bionic-updates && apt install -y apt-utils && apt-add-repository -y ppa:ondrej/php
 RUN apt update
 RUN apt install -y php7.4 php7.4-fpm
 
