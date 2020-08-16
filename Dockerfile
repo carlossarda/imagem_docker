@@ -16,13 +16,16 @@ RUN apt update
 RUN apt install -y php7.4 php7.4-fpm
 
 #instalando módulos
-RUN apt install -y php-pear php7.4-curl php7.4-dev php7.4-gd php7.4-mbstring php7.4-zip php7.4-mysql php7.4-xml
+RUN apt install -y php-pear php7.4-curl php7.4-dev php7.4-gd php7.4-mbstring php7.4-zip php7.4-mysql php7.4-xml php7.4-soap php-xdebug php-igbinary
 RUN apt install -y composer git
+RUN apt install -y libmcrypt-dev
+RUN pecl install mcrypt
 RUN composer global require laravel/installer
 ADD php.ini /etc/php/7.4/fpm/php.ini
 ADD www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 #instalando módulos diversos
+RUN apt update
 RUN apt install -y npm nano net-tools iputils-ping
 RUN apt-get clean
 RUN composer clear-cache
